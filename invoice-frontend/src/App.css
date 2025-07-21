@@ -1,0 +1,73 @@
+/* Main App Styles */
+.App {
+  text-align: center;
+  background-color: #7fc4fd; /* Light blue background */
+  min-height: 100vh;
+}
+
+/* Navigation Styles */
+.bg-dark-blue {
+  background-color: #004080 !important; /* Dark blue for navigation */
+}
+
+.navbar {
+  padding: 0.8rem 1rem;
+}
+
+.navbar-brand, .nav-link {
+  color: white !important;
+  font-weight: 500;
+}
+
+.nav-link {
+  margin: 0 10px;
+}
+
+/* Dashboard Title */
+.emart-title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 1.5rem 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  padding: 20px;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  background-color: #a5d8ff; /* Lighter blue for content area */
+  border-radius: 15px;
+  border: 2px solid #8a2be2; /* Purple border */
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+/* Dashboard Cards */
+.stat-card {
+  background-color: #004080; /* Dark blue for cards */
+  color: white;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Action Buttons */
+.btn-dark-blue {
+  background-color: #004080; /* Dark blue for buttons */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.btn-dark-blue:hover {
+  background-color: #003366;
+  color: white;
+}

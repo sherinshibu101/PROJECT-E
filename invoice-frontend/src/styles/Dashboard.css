@@ -1,0 +1,59 @@
+/* Dashboard container */
+.dashboard-container {
+  min-height: 100vh;
+  padding-top: 0;
+}
+
+/* Dashboard title */
+.emart-title {
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* Dashboard content area */
+.dashboard-content {
+  background-color: #a5d8ff;
+  border: 2px solid #8a2be2;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+/* Statistics cards */
+.stat-card {
+  background-color: #004080;
+  color: white;
+  border-radius: 5px;
+  padding: 20px 10px;
+  text-align: center;
+  height: 100%;
+}
+
+.stat-card h5 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.stat-card h2 {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Action buttons */
+.btn-dark-blue {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-dark-blue:hover {
+  background-color: #003366;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

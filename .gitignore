@@ -1,0 +1,42 @@
+# Root .gitignore for EMART project
+
+# Sensitive configuration files
+*.env
+*.env.local
+*.env.production
+*.env.development
+application.properties
+application-prod.properties
+application-local.properties
+
+# Database files
+*.db
+*.sqlite
+*.sql.backup
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS files
+.DS_Store
+Thumbs.db
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Build artifacts
+target/
+build/
+dist/
+node_modules/
+
+# Deployment scripts with sensitive info
+deploy-*.bat
+deploy-*.sh

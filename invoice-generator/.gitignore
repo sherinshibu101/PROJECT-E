@@ -1,0 +1,51 @@
+# Spring Boot .gitignore
+
+# Compiled class files
+*.class
+target/
+
+# Log files
+*.log
+logs/
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.project
+.classpath
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Application properties with sensitive data
+application.properties
+application-prod.properties
+application-local.properties
+application-secret.properties
+
+# Environment files
+.env
+*.env
+
+# Database files
+*.db
+*.sqlite
+
+# Maven wrapper
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
