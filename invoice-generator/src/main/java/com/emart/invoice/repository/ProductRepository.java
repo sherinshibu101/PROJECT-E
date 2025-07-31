@@ -35,6 +35,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     // Reset AUTO_INCREMENT to start from 1
     @Modifying
     @Transactional
-    @Query(value = "ALTER TABLE products AUTO_INCREMENT = 1", nativeQuery = true)
+    @Query(value = "ALTER SEQUENCE products_id_seq RESTART WITH 1", nativeQuery = true)
     void resetAutoIncrement();
 }

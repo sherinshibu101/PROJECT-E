@@ -33,6 +33,18 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.33</version>
     </dependency>
+    <!-- PostgreSQL Driver for Render deployment -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- PostgreSQL Driver for Render deployment -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>runtime</scope>
+    </dependency>
     <!-- iText PDF generation library -->
     <dependency>
       <groupId>com.itextpdf</groupId>
