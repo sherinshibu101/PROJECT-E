@@ -19,6 +19,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     // Reset AUTO_INCREMENT to start from 1
     @Modifying
     @Transactional
-    @Query(value = "ALTER SEQUENCE customers_id_seq RESTART WITH 1", nativeQuery = true)
+    @Query(value = "ALTER TABLE customers AUTO_INCREMENT = 1", nativeQuery = true)
     void resetAutoIncrement();
 }
