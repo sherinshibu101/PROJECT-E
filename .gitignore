@@ -1,3 +1,31 @@
+# Node
+node_modules/
+invoice-frontend/node_modules/
+
+# Frontend build output
+invoice-frontend/build/
+
+# Java build output
+invoice-generator/target/
+*.class
+*.jar
+
+# Environment files
+.env
+.env.*
+.env.local
+
+# IDEs and OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Logs
+*.log
+
+# Secrets or generated config
+application-secret.properties
 # Root .gitignore for EMART project
 
 # Sensitive configuration files

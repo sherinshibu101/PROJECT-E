@@ -90,6 +90,7 @@ public class OrderController {
             order.setOrderDate(LocalDateTime.now());
             order.setStatus("pending");
             order.setCreatedAt(LocalDateTime.now());
+            order.setUpdatedAt(LocalDateTime.now());
             
             // Process order items
             @SuppressWarnings("unchecked")
@@ -127,28 +128,15 @@ public class OrderController {
 
                 Product product = productOpt.get();
 
-                // Check stock
-                if (product.getStockQuantity() < quantity) {
-                    System.err.println("Insufficient stock for product: " + product.getName() +
-                                     ". Available: " + product.getStockQuantity() + ", Requested: " + quantity);
-                    return ResponseEntity.badRequest().body("Insufficient stock for product: " + product.getName());
-                }
-                
                 // Create order item
                 OrderItem orderItem = new OrderItem();
                 orderItem.setOrder(order);
-                orderItem.setProductName(product.getName());
+                orderItem.setProduct(product);
                 orderItem.setQuantity(quantity);
-                orderItem.setPrice(product.getCurrentPrice());
-                orderItem.setSubtotal(product.getCurrentPrice().multiply(BigDecimal.valueOf(quantity)));
+                orderItem.setUnitPrice(product.getCurrentPrice());
                 
                 orderItems.add(orderItem);
                 totalAmount = totalAmount.add(orderItem.getSubtotal());
-                
-                // Update product stock
-                product.setStockQuantity(product.getStockQuantity() - quantity);
-                product.setUpdatedAt(LocalDateTime.now());
-                productRepository.save(product);
             }
             
             order.setTotalAmount(totalAmount);
@@ -176,19 +164,9 @@ public class OrderController {
         if (orderOpt.isPresent()) {
             Order order = orderOpt.get();
             order.setStatus(statusUpdate.get("status"));
+            order.setUpdatedAt(LocalDateTime.now());
             Order updatedOrder = orderRepository.save(order);
             return ResponseEntity.ok(updatedOrder);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-    
-    // Delete order (cancel order)
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteOrder(@PathVariable Integer id) {
-        if (orderRepository.existsById(id)) {
-            orderRepository.deleteById(id);
-            return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
         }

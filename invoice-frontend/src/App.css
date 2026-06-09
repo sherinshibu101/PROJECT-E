@@ -1,17 +1,33 @@
 /* Main App Styles */
+:root {
+  --blue-950: #07233f;
+  --blue-900: #0b315f;
+  --blue-800: #0f4c81;
+  --blue-700: #1467a8;
+  --blue-600: #1d7fc7;
+  --blue-100: #dff1ff;
+  --blue-50: #f4faff;
+  --surface: rgba(255, 255, 255, 0.92);
+  --surface-border: rgba(20, 103, 168, 0.18);
+  --text-main: #102a43;
+  --text-muted: #5b7085;
+}
+
 .App {
   text-align: center;
-  background-color: #7fc4fd; /* Light blue background */
+  background-color: #eef8ff;
   min-height: 100vh;
+  color: var(--text-main);
 }
 
 /* Navigation Styles */
 .bg-dark-blue {
-  background-color: #004080 !important; /* Dark blue for navigation */
+  background-color: var(--blue-800) !important;
+  box-shadow: 0 8px 24px rgba(7, 35, 63, 0.14);
 }
 
 .navbar {
-  padding: 0.8rem 1rem;
+  padding: 0.75rem 1rem;
 }
 
 .navbar-brand, .nav-link {
@@ -21,15 +37,37 @@
 
 .nav-link {
   margin: 0 10px;
+  border-radius: 6px;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.navbar-text {
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.48);
+}
+
+.btn-outline-light:hover {
+  color: var(--blue-900);
 }
 
 /* Dashboard Title */
 .emart-title {
-  color: white;
+  color: var(--blue-950);
   font-size: 2.5rem;
   font-weight: bold;
   padding: 1.5rem 0;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0;
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.7);
 }
 
 /* Dashboard Container */
@@ -39,35 +77,41 @@
 
 /* Dashboard Content */
 .dashboard-content {
-  background-color: #a5d8ff; /* Lighter blue for content area */
-  border-radius: 15px;
-  border: 2px solid #8a2be2; /* Purple border */
+  background-color: #dff1ff;
+  border-radius: 12px;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 20px 50px rgba(7, 35, 63, 0.12);
   padding: 30px;
   margin-bottom: 30px;
 }
 
 /* Dashboard Cards */
 .stat-card {
-  background-color: #004080; /* Dark blue for cards */
-  color: white;
-  border-radius: 5px;
+  background-color: #f7fbff;
+  color: var(--text-main);
+  border: 1px solid rgba(20, 103, 168, 0.14);
+  border-radius: 8px;
   padding: 15px;
   margin-bottom: 20px;
   text-align: center;
+  box-shadow: 0 10px 26px rgba(15, 76, 129, 0.08);
 }
 
 /* Action Buttons */
 .btn-dark-blue {
-  background-color: #004080; /* Dark blue for buttons */
+  background-color: var(--blue-700);
   color: white;
   border: none;
   padding: 8px 16px;
   margin: 5px;
-  border-radius: 5px;
+  border-radius: 7px;
   font-weight: 500;
+  box-shadow: 0 8px 16px rgba(15, 76, 129, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .btn-dark-blue:hover {
-  background-color: #003366;
+  background-color: var(--blue-800);
   color: white;
+  box-shadow: 0 10px 20px rgba(15, 76, 129, 0.24);
 }

@@ -1,6 +1,6 @@
 /* Login Page Styles */
 .login-container {
-  background: linear-gradient(135deg, #7fc4fd 0%, #a5d8ff 100%);
+  background-color: #eef8ff !important;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -9,13 +9,13 @@
 }
 
 .login-card {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: #dff1ff !important;
+  border-radius: 12px;
+  box-shadow: 0 22px 55px rgba(7, 35, 63, 0.14);
   padding: 40px;
   width: 100%;
   max-width: 450px;
-  border: 2px solid #8a2be2;
+  border: 1px solid rgba(20, 103, 168, 0.18);
 }
 
 .login-header {
@@ -24,15 +24,15 @@
 }
 
 .login-title {
-  color: #004080;
+  color: #0b315f;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.7);
 }
 
 .login-subtitle {
-  color: #666;
+  color: #5b7085;
   font-size: 1rem;
   margin-bottom: 0;
 }
@@ -47,7 +47,7 @@
 
 .form-label {
   font-weight: 600;
-  color: #004080;
+  color: #0b315f;
   margin-bottom: 8px;
   display: block;
 }
@@ -55,7 +55,9 @@
 .form-control {
   width: 100%;
   padding: 12px 15px;
-  border: 2px solid #e0e0e0;
+  background-color: #f7fbff !important;
+  border: 1px solid rgba(20, 103, 168, 0.24);
+  color: #102a43 !important;
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -63,13 +65,18 @@
 
 .form-control:focus {
   outline: none;
-  border-color: #004080;
-  box-shadow: 0 0 0 0.25rem rgba(0, 64, 128, 0.25);
+  background-color: #ffffff !important;
+  border-color: #1467a8;
+  box-shadow: 0 0 0 0.25rem rgba(20, 103, 168, 0.18);
+}
+
+.form-control::placeholder {
+  color: #6f8498;
 }
 
 .btn-login {
   width: 100%;
-  background-color: #004080;
+  background-color: #1467a8;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -81,9 +88,9 @@
 }
 
 .btn-login:hover:not(:disabled) {
-  background-color: #003366;
+  background-color: #0f4c81;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 64, 128, 0.3);
+  box-shadow: 0 10px 20px rgba(15, 76, 129, 0.24);
 }
 
 .btn-login:disabled {

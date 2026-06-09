@@ -7,62 +7,67 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "order_items")
 public class OrderItem {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
-    @Column(name = "product_name", nullable = false, length = 200)
-    private String productName;
-    
+
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
-    
-    @Column(name = "price", nullable = false, precision = 10, scale = 2)
-    private BigDecimal price;
-    
-    @Column(name = "subtotal", nullable = false, precision = 10, scale = 2)
-    private BigDecimal subtotal;
-    
-    // Foreign Key: Many order items belong to one order
+
+    @Column(name = "unit_price", nullable = false, precision = 10, scale = 2)
+    private BigDecimal unitPrice;
+
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
-    
-    // Default constructor (required by JPA)
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
     public OrderItem() {}
-    
-    // Constructor
-    public OrderItem(Order order, String productName, Integer quantity, BigDecimal price) {
+
+    public OrderItem(Order order, Product product, Integer quantity, BigDecimal unitPrice) {
         this.order = order;
-        this.productName = productName;
+        this.product = product;
         this.quantity = quantity;
-        this.price = price;
-        this.subtotal = price.multiply(BigDecimal.valueOf(quantity));
+        this.unitPrice = unitPrice;
     }
-    
-    // Getters and Setters
+
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
-    
-    public String getProductName() { return productName; }
-    public void setProductName(String productName) { this.productName = productName; }
-    
+
     public Integer getQuantity() { return quantity; }
     public void setQuantity(Integer quantity) { this.quantity = quantity; }
-    
-    public BigDecimal getPrice() { return price; }
-    public void setPrice(BigDecimal price) { this.price = price; }
-    
-    public BigDecimal getSubtotal() { return subtotal; }
-    public void setSubtotal(BigDecimal subtotal) { this.subtotal = subtotal; }
-    
+
+    public BigDecimal getUnitPrice() { return unitPrice; }
+    public void setUnitPrice(BigDecimal unitPrice) { this.unitPrice = unitPrice; }
+
     public Order getOrder() { return order; }
     public void setOrder(Order order) { this.order = order; }
-    
+
+    public Product getProduct() { return product; }
+    public void setProduct(Product product) { this.product = product; }
+
+    public String getProductName() {
+        return product != null ? product.getName() : null;
+    }
+
+    public BigDecimal getPrice() {
+        return unitPrice;
+    }
+
+    public BigDecimal getSubtotal() {
+        if (unitPrice == null || quantity == null) {
+            return BigDecimal.ZERO;
+        }
+        return unitPrice.multiply(BigDecimal.valueOf(quantity));
+    }
+
     @Override
     public String toString() {
-        return "OrderItem{id=" + id + ", productName='" + productName + "', quantity=" + quantity + ", subtotal=" + subtotal + "}";
+        return "OrderItem{id=" + id + ", product=" + getProductName() + ", quantity=" + quantity + ", unitPrice=" + unitPrice + "}";
     }
 }

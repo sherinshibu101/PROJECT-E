@@ -17,7 +17,6 @@ export const customerAPI = {
   getById: (id) => api.get(`/customers/${id}`),
   create: (customer) => api.post('/customers', customer),
   update: (id, customer) => api.put(`/customers/${id}`, customer),
-  delete: (id) => api.delete(`/customers/${id}`),
 };
 
 // Product API calls
@@ -26,7 +25,6 @@ export const productAPI = {
   getById: (id) => api.get(`/products/${id}`),
   create: (product) => api.post('/products', product),
   update: (id, product) => api.put(`/products/${id}`, product),
-  delete: (id) => api.delete(`/products/${id}`),
 };
 
 // Order API calls
@@ -35,7 +33,6 @@ export const orderAPI = {
   getById: (id) => api.get(`/orders/${id}`),
   create: (order) => api.post('/orders', order),
   updateStatus: (id, status) => api.put(`/orders/${id}/status`, { status }),
-  delete: (id) => api.delete(`/orders/${id}`),
   getByCustomer: (customerId) => api.get(`/orders/customer/${customerId}`),
   getByStatus: (status) => api.get(`/orders/status/${status}`),
 };

@@ -1,42 +1,49 @@
 # EMART Invoice System Configuration Template
-# Copy this file to application.properties and fill in your actual values
+# Copy this file to application.properties or use environment variables
+# The values below reference environment variables with sensible defaults.
 
-# Database Configuration
-spring.datasource.url=jdbc:mysql://localhost:3306/emart_invoices
-spring.datasource.username=YOUR_DB_USERNAME
-spring.datasource.password=YOUR_DB_PASSWORD
+# Database Configuration (use env vars to avoid committing secrets)
+# Required env vars: DB_HOST, DB_PORT, DB_NAME, DB_USERNAME, DB_PASSWORD
+spring.datasource.url=jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:emart_invoices}
+spring.datasource.username=${DB_USERNAME:YOUR_DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD:YOUR_DB_PASSWORD}
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 # JPA Configuration
 spring.jpa.hibernate.ddl-auto=none
-spring.jpa.show-sql=true
+# Disable SQL logging in production; set true only for debugging
+spring.jpa.show-sql=false
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 
 # Server Configuration
-server.port=8080
+server.port=${SERVER_PORT:8080}
 # Allow connections from any IP address (for network deployment)
 server.address=0.0.0.0
 
 # Error Handling & Logging
-server.error.include-stacktrace=always
-server.error.include-message=always
-logging.level.com.emart.invoice=DEBUG
-logging.level.org.springframework.web=DEBUG
-logging.level.org.hibernate=DEBUG
+server.error.include-stacktrace=never
+server.error.include-message=never
+logging.level.com.emart.invoice=INFO
+logging.level.org.springframework.web=INFO
+logging.level.org.hibernate=INFO
 
 # Email Configuration (Gmail with enhanced security)
-# IMPORTANT: Use App Password, not your regular Gmail password
-spring.mail.host=smtp.gmail.com
-spring.mail.port=587
-spring.mail.username=YOUR_GMAIL_ADDRESS
-spring.mail.password=YOUR_GMAIL_APP_PASSWORD
+# IMPORTANT: Provide app-specific password via SPRING_MAIL_PASSWORD
+spring.mail.host=${SPRING_MAIL_HOST:smtp.gmail.com}
+spring.mail.port=${SPRING_MAIL_PORT:587}
+spring.mail.username=${SPRING_MAIL_USERNAME:YOUR_GMAIL_ADDRESS}
+spring.mail.password=${SPRING_MAIL_PASSWORD:YOUR_GMAIL_APP_PASSWORD}
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
 spring.mail.properties.mail.smtp.starttls.required=true
 spring.mail.properties.mail.smtp.ssl.protocols=TLSv1.2
-spring.mail.properties.mail.smtp.ssl.trust=smtp.gmail.com
-spring.mail.properties.mail.smtp.from=YOUR_GMAIL_ADDRESS
+spring.mail.properties.mail.smtp.ssl.trust=${SPRING_MAIL_HOST:smtp.gmail.com}
+spring.mail.properties.mail.smtp.from=${SPRING_MAIL_USERNAME:YOUR_GMAIL_ADDRESS}
 spring.mail.properties.mail.smtp.connectiontimeout=5000
 spring.mail.properties.mail.smtp.timeout=3000
 spring.mail.properties.mail.smtp.writetimeout=5000
 spring.mail.default-encoding=UTF-8
+
+# Note: Do NOT commit real credentials. Use environment variables or a
+# secrets manager (AWS Secrets Manager / GitHub Secrets) and reference them
+# at deploy time.

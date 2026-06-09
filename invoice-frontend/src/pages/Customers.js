@@ -27,41 +27,6 @@ const Customers = () => {
     }
   };
 
-  const handleDelete = async (id) => {
-    if (window.confirm('Are you sure you want to delete this customer?')) {
-      try {
-        await customerAPI.delete(id);
-        setCustomers(customers.filter(customer => customer.id !== id));
-      } catch (error) {
-        console.error('Error deleting customer:', error);
-        alert('Failed to delete customer. Please try again.');
-      }
-    }
-  };
-
-  const handleResetIds = async () => {
-    if (window.confirm('Are you sure you want to reset customer IDs? This will restart ID numbering from 1.')) {
-      try {
-        const response = await fetch('http://localhost:8080/api/customers/reset-ids', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (response.ok) {
-          alert('Customer IDs reset successfully! New customers will start from ID 1.');
-          fetchCustomers(); // Refresh the list
-        } else {
-          throw new Error('Failed to reset IDs');
-        }
-      } catch (error) {
-        console.error('Error resetting customer IDs:', error);
-        setError('Failed to reset customer IDs. Please try again.');
-      }
-    }
-  };
-
   const filteredCustomers = customers.filter(customer => 
     customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -90,18 +55,9 @@ const Customers = () => {
         <div className="content-card">
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h2 className="page-title">Customers</h2>
-            <div className="btn-group">
-              <Link to="/customers/add" className="btn btn-dark-blue">
-                <i className="bi bi-plus-circle me-2"></i> Add New Customer
-              </Link>
-              <button
-                className="btn btn-outline-warning"
-                onClick={handleResetIds}
-                title="Reset customer ID numbering to start from 1"
-              >
-                <i className="bi bi-arrow-clockwise me-2"></i> Reset IDs
-              </button>
-            </div>
+            <Link to="/customers/add" className="btn btn-dark-blue">
+              <i className="bi bi-plus-circle me-2"></i> Add New Customer
+            </Link>
           </div>
 
           {error && (
@@ -149,12 +105,6 @@ const Customers = () => {
                           <Link to={`/customers/edit/${customer.id}`} className="btn btn-sm btn-outline-primary">
                             Edit
                           </Link>
-                          <button
-                            className="btn btn-sm btn-outline-danger"
-                            onClick={() => handleDelete(customer.id)}
-                          >
-                            Delete
-                          </button>
                         </div>
                       </td>
                     </tr>

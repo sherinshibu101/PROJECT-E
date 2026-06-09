@@ -10,9 +10,7 @@ const ProductForm = () => {
 
   const [formData, setFormData] = useState({
     name: '',
-    description: '',
-    currentPrice: '',
-    stockQuantity: ''
+    currentPrice: ''
   });
   const [loading, setLoading] = useState(isEditMode);
   const [error, setError] = useState(null);
@@ -30,8 +28,7 @@ const ProductForm = () => {
       const response = await productAPI.getById(id);
       setFormData({
         ...response.data,
-        currentPrice: response.data.currentPrice?.toString() || '',
-        stockQuantity: response.data.stockQuantity?.toString() || ''
+        currentPrice: response.data.currentPrice?.toString() || ''
       });
     } catch (error) {
       console.error('Error fetching product:', error);
@@ -61,8 +58,7 @@ const ProductForm = () => {
     // Format data for API
     const productData = {
       ...formData,
-      currentPrice: parseFloat(formData.currentPrice),
-      stockQuantity: parseInt(formData.stockQuantity || '0', 10)
+      currentPrice: parseFloat(formData.currentPrice)
     };
 
     try {
@@ -123,46 +119,19 @@ const ProductForm = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="description" className="form-label">Description</label>
-              <textarea
-                className="form-control"
-                id="description"
-                name="description"
-                rows="3"
-                value={formData.description || ''}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-
-            <div className="row">
-              <div className="col-md-6 mb-3">
-                <label htmlFor="currentPrice" className="form-label">Price *</label>
-                <div className="input-group">
-                  <span className="input-group-text">$</span>
-                  <input
-                    type="number"
-                    step="0.01"
-                    min="0"
-                    className="form-control"
-                    id="currentPrice"
-                    name="currentPrice"
-                    value={formData.currentPrice}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="col-md-6 mb-3">
-                <label htmlFor="stockQuantity" className="form-label">Stock Quantity</label>
+              <label htmlFor="currentPrice" className="form-label">Price *</label>
+              <div className="input-group">
+                <span className="input-group-text">$</span>
                 <input
                   type="number"
+                  step="0.01"
                   min="0"
                   className="form-control"
-                  id="stockQuantity"
-                  name="stockQuantity"
-                  value={formData.stockQuantity}
+                  id="currentPrice"
+                  name="currentPrice"
+                  value={formData.currentPrice}
                   onChange={handleChange}
+                  required
                 />
               </div>
             </div>

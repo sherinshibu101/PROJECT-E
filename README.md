@@ -16,16 +16,14 @@ A complete invoice management system built with **Spring Boot** and **React** fo
 - Session management
 
 ### 👥 Customer Management
-- Add, edit, delete customers
+- Add and edit customers
 - Search functionality
 - Customer details management
-- ID reset functionality for clean numbering
 
 ### 📦 Product Management
 - Product catalog management
 - Inventory tracking
 - Price management
-- ID reset functionality for clean numbering
 
 ### 📋 Order Management
 - Create orders with multiple items

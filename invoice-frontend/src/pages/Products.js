@@ -27,21 +27,8 @@ const Products = () => {
     }
   };
 
-  const handleDelete = async (id) => {
-    if (window.confirm('Are you sure you want to delete this product?')) {
-      try {
-        await productAPI.delete(id);
-        setProducts(products.filter(product => product.id !== id));
-      } catch (error) {
-        console.error('Error deleting product:', error);
-        alert('Failed to delete product. Please try again.');
-      }
-    }
-  };
-
   const filteredProducts = products.filter(product => 
-    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.description?.toLowerCase().includes(searchTerm.toLowerCase())
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (loading) {
@@ -96,9 +83,7 @@ const Products = () => {
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
-                  <th>Description</th>
                   <th>Price</th>
-                  <th>Stock</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -108,27 +93,19 @@ const Products = () => {
                     <tr key={product.id}>
                       <td>{product.id}</td>
                       <td>{product.name}</td>
-                      <td>{product.description || 'N/A'}</td>
                       <td>${product.currentPrice?.toFixed(2) || '0.00'}</td>
-                      <td>{product.stockQuantity || 0}</td>
                       <td>
                         <div className="btn-group" role="group">
                           <Link to={`/products/edit/${product.id}`} className="btn btn-sm btn-outline-primary">
                             Edit
                           </Link>
-                          <button
-                            className="btn btn-sm btn-outline-danger"
-                            onClick={() => handleDelete(product.id)}
-                          >
-                            Delete
-                          </button>
                         </div>
                       </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="6" className="text-center">
+                    <td colSpan="4" className="text-center">
                       {searchTerm ? 'No products match your search.' : 'No products found.'}
                     </td>
                   </tr>

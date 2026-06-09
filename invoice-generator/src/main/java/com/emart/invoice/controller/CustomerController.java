@@ -25,7 +25,7 @@ public class CustomerController {
         return customerRepository.findAll();
     }
 
-         // Get customer by ID
+    // Get customer by ID
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable Integer id) {
         Optional<Customer> customer = customerRepository.findById(id);
@@ -36,9 +36,11 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
         customer.setCreatedAt(LocalDateTime.now());
+        customer.setUpdatedAt(LocalDateTime.now());
         Customer savedCustomer = customerRepository.save(customer);
         return new ResponseEntity<>(savedCustomer, HttpStatus.CREATED);
     }
+
     // Update customer
     @PutMapping("/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable Integer id, @RequestBody Customer customerDetails) {
@@ -49,31 +51,11 @@ public class CustomerController {
             customer.setEmail(customerDetails.getEmail());
             customer.setPhone(customerDetails.getPhone());
             customer.setAddress(customerDetails.getAddress());
+            customer.setUpdatedAt(LocalDateTime.now());
             Customer updatedCustomer = customerRepository.save(customer);
             return ResponseEntity.ok(updatedCustomer);
         } else {
             return ResponseEntity.notFound().build();
-        }
-    }
-
-    // Delete customer
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCustomer(@PathVariable Integer id) {
-        if (!customerRepository.existsById(id)) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        customerRepository.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @PostMapping("/reset-ids")
-    public ResponseEntity<String> resetCustomerIds() {
-        try {
-            // Reset AUTO_INCREMENT to start from 1 or next available number
-            customerRepository.resetAutoIncrement();
-            return ResponseEntity.ok("Customer IDs reset successfully");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error resetting IDs: " + e.getMessage());
         }
     }
 

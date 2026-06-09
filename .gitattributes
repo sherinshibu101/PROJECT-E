@@ -1,0 +1,6 @@
+* text=auto
+
+# Treat build outputs as vendored to reduce noise
+invoice-frontend/build/** linguist-vendored
+invoice-generator/target/** linguist-vendored
+database/** linguist-vendored

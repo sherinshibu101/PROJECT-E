@@ -2,58 +2,82 @@
 .dashboard-container {
   min-height: 100vh;
   padding-top: 0;
+  padding-bottom: 40px;
 }
 
 /* Dashboard title */
 .emart-title {
   margin: 0;
-  padding: 20px 0;
+  padding: 46px 0 28px;
 }
 
 /* Dashboard content area */
 .dashboard-content {
-  background-color: #a5d8ff;
-  border: 2px solid #8a2be2;
-  border-radius: 15px;
-  padding: 30px;
+  background-color: #dff1ff;
+  border: 1px solid rgba(20, 103, 168, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 22px 55px rgba(7, 35, 63, 0.13);
+  padding: 34px;
   margin-bottom: 30px;
+}
+
+.dashboard-content h2 {
+  color: #0b315f;
+  font-weight: 700;
 }
 
 /* Statistics cards */
 .stat-card {
-  background-color: #004080;
-  color: white;
-  border-radius: 5px;
-  padding: 20px 10px;
+  background-color: #f7fbff;
+  color: #102a43;
+  border: 1px solid rgba(20, 103, 168, 0.16);
+  border-radius: 8px;
+  padding: 24px 14px;
   text-align: center;
   height: 100%;
+  box-shadow: 0 10px 26px rgba(15, 76, 129, 0.08);
 }
 
 .stat-card h5 {
   font-size: 1rem;
   margin-bottom: 15px;
-  font-weight: 600;
+  font-weight: 700;
+  color: #486985;
 }
 
 .stat-card h2 {
   font-size: 2.2rem;
   margin: 0;
   font-weight: 700;
+  color: #0f4c81;
 }
 
 /* Action buttons */
 .btn-dark-blue {
-  background-color: #004080;
+  background-color: #1467a8;
   color: white;
   border: none;
   padding: 12px 15px;
   font-weight: 600;
   font-size: 0.9rem;
+  border-radius: 7px;
+  box-shadow: 0 8px 16px rgba(15, 76, 129, 0.18);
   transition: all 0.3s ease;
 }
 
 .btn-dark-blue:hover {
-  background-color: #003366;
+  background-color: #0f4c81;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 22px rgba(15, 76, 129, 0.25);
+}
+
+@media (max-width: 768px) {
+  .emart-title {
+    font-size: 2rem;
+    padding: 32px 0 22px;
+  }
+
+  .dashboard-content {
+    padding: 22px;
+  }
 }
