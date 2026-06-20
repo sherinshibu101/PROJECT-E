@@ -36,12 +36,6 @@ A complete invoice management system built with **Spring Boot** and **React** fo
 - Download invoices
 - Professional formatting
 
-### 🎨 Modern UI
-- Responsive design
-- Professional interface
-- Mobile-friendly
-- Clean, modern styling
-
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -95,25 +89,6 @@ npm start
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:8080
 - Login: admin / emartadmin@123
-
-## 📦 Deployment
-
-### Local Network Deployment
-Perfect for small businesses - deploy on one computer, access from multiple devices.
-
-```bash
-# See deployment guide
-cat DEPLOYMENT_GUIDE.md
-
-# Quick deploy
-./deploy-backend.bat
-./deploy-frontend.bat
-```
-
-### Cloud Deployment
-Deploy to Railway, Heroku, or AWS for remote access.
-
-See `DEPLOYMENT_GUIDE.md` for detailed instructions.
 
 ## 🏗️ Architecture
 
@@ -177,21 +152,5 @@ EMART/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
-
-- 📖 Read the [Deployment Guide](DEPLOYMENT_GUIDE.md)
-- 🔒 Check [Security Setup](SECURITY_SETUP.md)
-- 🐛 Report issues on GitHub
-- 💬 Contact: [your-email@example.com]
-
-## 🎯 Perfect For
-
-- Small retail businesses
-- Service providers
-- Freelancers
-- Small to medium enterprises
-- Anyone needing professional invoice management
-
----
 
 **Made with ❤️ for small businesses**
