@@ -8,11 +8,15 @@ A complete invoice management system built with **Spring Boot** and **React** fo
 ![React](https://img.shields.io/badge/React-18+-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0+-blue)
 
-FORGOT TO MENTION I HAD MADE SOME UPDATES AND ITS NOW DEPLOYED BUT THEN U CANT ACCESS IT CAUSE MY MY CREDITS ARE OVER FOR GOOGLE CLOUD RUN 
-https://emartinvoices.web.app/
-YALL CAN TRY OPENING IT BUT IT WONT WORK UNLESS I ALLOW IT TO RUN AGAIN 
-ANYWAYS I HAD DONE SOME BASICS CI/CD PIPELINE INTEGRATION WHICH YOU CAN CHECK IF U WANT IN MY SECONDARY GITHUB ACCOUNT - https://github.com/sherinshibu1001/EMART
-THIS IS MY FIRST FULL STACK PROJECT AND I HAD SO MUCH FUN TBH , ITS MEANT FOR A SHOP BUT YEAH I DONT HAVE MONEY SOO 
+---
+
+>  **Deployment Update:** The application is fully deployed, but live access via [EMART Invoices](https://emartinvoices.web.app/) is temporarily paused due to Google Cloud Run credit limits. 
+> 
+>  **CI/CD Pipeline:** You can check out the basic CI/CD pipeline automation setup over in my secondary repository: [sherinshibu1001/EMART](https://github.com/sherinshibu1001/EMART).
+> 
+> *Note: This is my very first full-stack project! It was built with a real-world retail shop in mind, and I had an absolute blast putting all these moving pieces together.*
+
+---
 
 ## ✨ Features
 
